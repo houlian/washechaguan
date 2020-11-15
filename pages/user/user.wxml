@@ -102,3 +102,6 @@
   bind:generalWindow='generalWindow'
   wx:if='{{generalContent}}'
 ></generalWindow>
+
+
+<!-- <view></view> -->
