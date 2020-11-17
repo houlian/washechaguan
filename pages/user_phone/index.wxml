@@ -1,24 +1,40 @@
 <navbar parameter='{{parameter}}'></navbar>
-<view class="ChangePassword">
-    <view class="list">
-      <view class="item">
-        <input type='number' placeholder='填写手机号码' bindinput='inputgetName' data-name='phone' placeholder-class='placeholder'></input>
+<view class="mecontent">
+  <view class="mecard">
+    <view class="metitle">瓦舍茶馆</view>
+    <view class="mebu"><button type="default" class="mebutton" plain="true" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点击授权</button></view>
+    <view class="methree">
+      <view class="mei">
+        <view class="metext1">0</view>
+        <view  class="metext2">余额(元)</view>
       </view>
-      <view class="item acea-row row-between-wrapper">
-        <input type='number' placeholder='填写验证码' placeholder-class='placeholder' bindinput='inputgetName' data-name='captcha'  class="codeIput"></input>
-         <button
-              class="code font-color {{disabled === true ? 'on' : ''}}"
-              disabled='{{disabled}}'
-              bindtap="code"
-            >
-            {{ timetext }}
-          </button>
+      <view class="mei">
+        <view  class="metext1">0</view>
+        <view  class="metext2">积分</view>
       </view>
-       <view class="item acea-row row-between-wrapper" wx:if="{{imagesCode}}">
-        <input type='text' placeholder='填写图片验证码' placeholder-class='placeholder' class="codeIput" bindinput='inputgetName' data-name='captchaimg'></input>
-        <image src="{{httpUrl}}" class="images" bindtap="imagesCodeTap"></image>
+      <view class="mei">
+        <view class="metext1">0</view>
+        <view class="metext2">优惠券(张)</view>
       </view>
+
     </view>
-    <view class="confirmBnt bg-color" bindtap="editPwd">确认绑定</view>
+
   </view>
+
+
+  <view class="mehuiyuan">
+    <view>开通会员卡步骤</view>
+
+  </view>
+
+  <view class="mecon">
+    <view>会员权益</view>
+    <view>1： </view>
+    <view>2： </view>
+    <view>3： </view>
+
+  </view>
+
+</view>
+
 <authorize bind:onLoadFun="onLoadFun"></authorize>

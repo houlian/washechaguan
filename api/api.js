@@ -151,8 +151,11 @@ export function switchH5Login(){
  * 绑定手机号
  * 
 */
+// export function bindingPhone(data){
+//   return request.post('binding',data);
+// }
 export function bindingPhone(data){
-  return request.post('binding',data);
+  return request.post('mobilebinding',data);
 }
 
 /**

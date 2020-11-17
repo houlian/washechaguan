@@ -1,4 +1,4 @@
-import { registerVerify, bindingPhone, verifyCode} from '../../api/api.js';
+import { bindingPhone} from '../../api/api.js';
 const app = getApp();
 
 Page({
@@ -10,9 +10,9 @@ Page({
     parameter: {
       'navbar': '1',
       'return': '1',
-      'title': '绑定手机号',
+      'title': '瓦舍茶馆',
       'color': true,
-      'class': '0'
+      'class': '1'
     },
     disabled: false,
     active: false,
@@ -24,103 +24,38 @@ Page({
     httpUrl: '',
     captchaimg: ''
   },
-  inputgetName(e) {
-    let that = this;
-    let name = e.currentTarget.dataset.name;
-    let nameMap = {}
-    if (name.indexOf('.') != -1) {
-      let nameList = name.split('.')
-      if (that.data[nameList[0]]) {
-        nameMap[nameList[0]] = that.data[nameList[0]]
-      } else {
-        nameMap[nameList[0]] = {}
-      }
-      nameMap[nameList[0]][nameList[1]] = e.detail.value
-    } else {
-      nameMap[name] = e.detail.value
-    }
-    that.setData(nameMap);
-  },
-  onLoadFun:function(){
-
-  },
-  editPwd:function(){
-    let that = this;
-    if (!this.data.phone) return app.Tips({ title: '请填写手机号码！' });
-    if (!(/^1[3456789]\d{9}$/.test(this.data.phone))) return app.Tips({ title: '请输入正确的手机号码！' });
-    if (!this.data.captcha) return app.Tips({title:'请填写验证码'});
+  
+  //绑定手机
+  getPhoneNumber: function (e) {
+    // var _this = this;
     bindingPhone({
-      phone:this.data.phone,
-      captcha: this.data.captcha
+      encryptedData: e.detail.encryptedData,
+      iv: e.detail.iv
     }).then(res=>{
-      if (res.data !== undefined && res.data.is_bind){
-        wx.showModal({
-          title:'是否绑定账号',
-          content:res.msg,
-          confirmText:'绑定',
-          success(res){
-            if (res.confirm){
-              bindingPhone({
-                phone: that.data.phone,
-                captcha: that.data.captcha,
-                step:1
-              }).then(res=>{
-                return app.Tips({ title: res.msg, icon: 'success' }, { tab: 5, url: '/pages/user_info/index' });
-              }).catch(err => { return app.Tips({ title: err }); })
-            } else if (res.cancel){
-              return app.Tips({ title: '您已取消绑定！'}, { tab: 5, url: '/pages/user_info/index' });
-            }
-          }
-        });
-      }else
-        return app.Tips({title:'绑定成功！',icon:'success'},{tab:5,url:'/pages/user_info/index'});
-    }).catch(err=>{
-      return app.Tips({title:err});
-    })
-  },
-  /**
-   * 发送验证码
-   * 
-  */
-  code: function () {
-    let that = this;
-    if (!this.data.phone) return app.Tips({ title: '请填写手机号码！' });
-    if (!(/^1[3456789]\d{9}$/.test(that.data.phone))) return app.Tips({ title: '请输入正确的手机号码！' });
-    if (that.data.imagesCode) {
-      if (!that.data.captchaimg) {
-        return app.Tips({ title: '请输入图片验证码' });
-      }
-    };
-    registerVerify(this.data.captchaimg, this.data.key,this.data.phone).then(res => {
-      if (res.status == 402) {
-        that.data.imagesCode = true;
-        that.setData({
-          imagesCode: that.data.imagesCode
-        });
-        if (this.data.captchaimg != '') {
-          that.runNun();
+      return app.Tips({ title: res.msg, icon: 'success' }, { tab: 5, url: '/pages/user_info/index' });
+    }).catch(err => { return app.Tips({ title: err }); })
+    return;
+    wx.request({
+      url: _this.data.phoneUrl,
+      data: {
+        // userid: app.globalData.member.id,
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv
+      },
+      success: function (res) {
+        if (res.data.code == 200) {
+          app.globalData.member = res.data.data;
+          wx.showToast({ title: res.data.msg, icon: 'success', duration: 1000 });
+        } else {
+          console.log(res);
+          wx.showToast({ title: res.data.msg, icon: 'none', duration: 1000 });
         }
-      } else {
-        that.runNun();
       }
-      return app.Tips({title:'发送成功',icon:'success'});
-    }).catch(err => {
-      return app.Tips({ title: err });
     });
   },
-  runNun: function () {
-    let that = this;
-    let n = 60;
-    let run = setInterval(function () {
-      n--;
-      if (n < 0) {
-        clearInterval(run);
-        that.setData({ disabled: false, active: false, timetext: '重新获取' })
-      } else {
-        that.setData({ timetext: "剩余 " + n + "s", disabled: true, active: true })
-      }
-    }, 1000);
-  },
+
+
+
   // 获取key值；
   getVerifyCode: function () {
     let that = this;
@@ -137,7 +72,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getVerifyCode();
+    // this.getVerifyCode();
   },
   imagesCodeTap: function () {
     this.setData({

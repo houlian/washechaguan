@@ -1,12 +1,35 @@
-/*修改密码*/
-page{background-color:#fff!important;}
-.ChangePassword .phone{font-size:32rpx;font-weight:bold;text-align:center;margin-top:55rpx;}
-.ChangePassword .list{width:580rpx;margin:53rpx auto 0 auto;}
-.ChangePassword .list .item{width:100%;height:110rpx;border-bottom:2rpx solid #f0f0f0;}
-.ChangePassword .list .item input{width:100%;height:100%;font-size:32rpx;}
-.ChangePassword .list .item .placeholder{color:#b9b9bc;}
-.ChangePassword .list .item input.codeIput{width:340rpx;}
-.ChangePassword .list .item .code{font-size:32rpx;background-color:#fff;}
-.ChangePassword .list .item .code.on{color:#b9b9bc!important;}
-.ChangePassword .list .item .images{width: 160rpx;height:70rpx;display:block;}
+.mecard {
+  height: 160px;
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  background-color: white;
+  border-radius:30rpx;
+  padding: 20px;
+}
+.mehuiyuan {
+  height: 100px;
+  width: 90%;
+  margin: auto;
+  margin-top: 15px;
+  background-color: white;
+  border-radius:30rpx;
+  padding: 20px;
+}
+.mecon {
+  height: 240px;
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  background-color: white;
+  border-radius:30rpx;
+  padding: 20px;
+}
+.metitle {text-align: right;font-size: 18px;font-weight: 600;}
+.mebu {margin: 10px auto;width: 60%;}
+.mebutton {height: 36px;line-height: 36px;}
+.methree {display: flex;margin-top: 15px;}
+.mei {flex: 1;}
+.metext1 {text-align: center;font-weight: 400;font-size: 16px;}
+.metext2 {text-align: center;font-weight: 400;color: gray;}
 .ChangePassword .confirmBnt{font-size:32rpx;width:580rpx;height:90rpx;border-radius:45rpx;color:#fff;margin:92rpx auto 0 auto;text-align:center;line-height:90rpx;}
