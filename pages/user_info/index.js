@@ -62,6 +62,27 @@ Page({
       });
     }
   },
+    /**
+   * 页面跳转
+  */
+ goPages:function(e){
+  if(app.globalData.isLog){
+    if (e.currentTarget.dataset.url == '/pages/user_spread_user/index') {
+      if (!this.data.userInfo.is_promoter && this.data.userInfo.statu == 1) 
+        return app.Tips({ title: '您还没有推广权限！！' });
+      if (!this.data.userInfo.is_promoter && this.data.userInfo.statu == 2){
+        return this.setData({ generalActive:true});
+      }
+    }
+    if (e.currentTarget.dataset.url == '/pages/logon/index') return this.setData({ switchActive:true});
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url
+    })
+  }else{
+    this.setData({ iShidden:false});
+  }
+},
+
   /**
    * 授权回调
   */

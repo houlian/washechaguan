@@ -15,8 +15,8 @@ Page({
       'class': '0'
     },
     navList:[
-      { 'name': '分值明细', 'icon':'icon-mingxi'},
-      { 'name': '分值提升', 'icon': 'icon-tishengfenzhi' }
+      { 'name': '充值明细', 'icon':'icon-mingxi'},
+      { 'name': '兑换记录', 'icon': 'icon-tishengfenzhi' }
     ],
     current:0,
     page:1,

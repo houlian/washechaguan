@@ -1,6 +1,7 @@
 const app = getApp();
 
-import { getIndexData, getCoupons, getTemlIds, getLiveList} from '../../api/api.js';
+import { getIndexData, getCoupons, getTemlIds} from '../../api/api.js';
+import { getUserInfo} from '../../api/user.js';
 import { CACHE_SUBSCRIBE_MESSAGE } from '../../config.js';
 import Util from '../../utils/util.js';
 import wxh from '../../utils/wxh.js';
@@ -13,34 +14,22 @@ Page({
     itemNew:[],
     activityList:[],
     menus: [],
-    bastBanner: [],
-    bastInfo: '',
-    bastList: [],
-    fastInfo: '',
-    fastList: [],
-    firstInfo: '',
-    firstList: [],
-    salesInfo: '',
-    likeInfo: [],
-    lovelyBanner: {},
-    benefit:[],
     indicatorDots: false,
     circular: true,
     autoplay: true,
     interval: 3000,
     duration: 500,
-    parameter:{
-      'navbar':'0',
-      'return':'0'
+    parameter: {
+      'navbar': '1',
+      'return': '1',
+      'title': '瓦舍茶馆',
+      'color': true,
+      'class': '1'
     },
     window: false,
     iShidden:false,
     navH: "",
-    newGoodsBananr:'',
-    selfLongitude: '',
-    selfLatitude: '',
-    liveList: [],
-    liveInfo:{},
+    userInfo:{},
   },
   closeTip:function(){
     wx.setStorageSync('msg_key',true);
@@ -48,6 +37,8 @@ Page({
       iShidden:true
     })
   },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -60,37 +51,24 @@ Page({
     if (options.scene) app.globalData.code = decodeURIComponent(options.scene);
     if (wx.getStorageSync('msg_key')) this.setData({ iShidden:true});
     this.getTemlIds();
-    this.getLiveList();
+    this.getUserInfo();
   },
-  getLiveList:function(){
-    getLiveList(1,20).then(res=>{
-      if(res.data.length == 1){
-        this.setData({liveInfo:res.data[0]});
-      }else{
-        this.setData({liveList:res.data});
-      }
-    }).catch(res=>{
 
+  chongzhi:function(){
+    wx.navigateTo({
+      url: '/pages/user_money/index',
     })
   },
-  /**
-   * 商品详情跳转
-   */
-  goDetail: function (e) {
-    let item = e.currentTarget.dataset.items
-    if (item.activity && item.activity.type === "1") {
-      wx.navigateTo({
-        url: `/pages/activity/goods_seckill_details/index?id=${item.activity.id}&time=${item.activity.time}&status=1`
+  getUserInfo:function(){
+    var that=this;
+    getUserInfo().then(res=>{
+      const generalContent="generalContent.promoterNum";
+      that.setData({ 
+        userInfo: res.data, 
+        loginType: res.data.login_type,
+        orderStatusNum: res.data.orderStatusNum,
       });
-    } else if (item.activity && item.activity.type === "2") {
-      wx.navigateTo({ url: `/pages/activity/goods_bargain_details/index?id=${item.activity.id}` });
-    } else if (item.activity && item.activity.type === "3") {
-      wx.navigateTo({
-        url: `/pages/activity/goods_combination_details/index?id=${item.activity.id}`
-      });
-    } else {
-      wx.navigateTo({ url: `/pages/goods_details/index?id=${item.id}` });
-    }
+    });
   },
   getTemlIds(){
     let messageTmplIds = wx.getStorageSync(CACHE_SUBSCRIBE_MESSAGE);
@@ -131,18 +109,12 @@ Page({
     var that = this;
     getIndexData().then(res=>{
       that.setData({
-        imgUrls: res.data.banner,
+        // imgUrls: res.data.banner,
         menus: res.data.menus,
         itemNew: res.data.roll,
         activityList: res.data.activity,
-        bastBanner: res.data.info.bastBanner,
-        bastInfo: res.data.info.bastInfo,
-        bastList: res.data.info.bastList,
-        fastInfo: res.data.info.fastInfo,
-        fastList: res.data.info.fastList,
-        firstInfo: res.data.info.firstInfo,
-        firstList: res.data.info.firstList,
-        salesInfo: res.data.info.salesInfo,
+
+
         likeInfo: res.data.likeInfo,
         lovelyBanner: res.data.lovely.length ? res.data.lovely[0] : {},
         benefit: res.data.benefit,

@@ -13,6 +13,15 @@ export function login(data) {
   return request.post("wechat/mp_auth", data, { noAuth : true });
 }
 
+/**
+ * 小程序用户登录
+ * @param data object 小程序用户登陆信息
+ */
+export function bindingPhone(data) {
+  return request.post("wechat/loginmobile", data, { noAuth : true });
+}
+
+
 
 /**
  * 获取用户中心菜单
@@ -45,6 +54,10 @@ export function userEdit(data){
 */
 export function userLevelGrade(){
   return request.get('user/level/grade');
+}
+//会员等级数据
+export function userMember(){
+  return request.get('user/level/member');
 }
 
 /**

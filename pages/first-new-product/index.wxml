@@ -11,4 +11,3 @@
       <text class='loading iconfont icon-jiazai' wx:if='{{loading==true}}'></text>{{loadTitle}}
     </view>
 </view>
-<home></home>

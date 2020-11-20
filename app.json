@@ -61,7 +61,8 @@
     "components/address-window/index",
     "components/home/index",
     "components/write-off/index",
-    "components/general-window/index"
+    "components/general-window/index",
+    "pages/member/index"
   ],
   "subPackages": [
     {

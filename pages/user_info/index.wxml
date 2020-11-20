@@ -78,4 +78,5 @@
   </view>
 </form>
 
+<view data-url='/pages/user_phone/index' bindtap='goPages'><text class="binding">绑定手机号</text></view>
 <authorize bind:onLoadFun="onLoadFun"></authorize>

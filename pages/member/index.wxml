@@ -1,0 +1,18 @@
+<!--pages/member/index.wxml-->
+<navbar parameter='{{parameter}}'></navbar>
+<view>
+  <view class="mbas">
+    <view class="mimg" style='background-image:url({{item.image}})'>
+      <view class='name'>{{item.name}}</view>
+      <view class='discount'>可享受商品优惠<text class='iconfont icon-zhekou'></text></view>
+    </view>
+
+  </view>
+
+  <view class="mehuiyuan">
+    <view class="meit">会员权益</view>
+    <text class="meis">{{ item.explain }}</text>
+
+  </view>
+
+</view>

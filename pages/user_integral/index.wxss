@@ -3,7 +3,7 @@
 .integral-details .header .currentScore{font-size:26rpx;color:rgba(255, 255, 255, 0.8);text-align:center;margin-bottom:11rpx;}
 .integral-details .header .line{width:60rpx;height:3rpx;background-color:#fff;margin:20rpx auto 0 auto;}
 .integral-details .header .nav{font-size:22rpx;color:rgba(255, 255, 255, 0.8);flex:1;margin-top:35rpx;}
-.integral-details .header .nav .item{width:33.33%;text-align:center;}
+.integral-details .header .nav .item{width:49.8%;text-align:center;}
 .integral-details .header .nav .item .num{color:#fff;font-size:40rpx;margin-bottom:5rpx;font-family: 'Guildford Pro';}
 .integral-details .wrapper .nav{flex:1;width:690rpx;border-radius:20rpx 20rpx 0 0;margin:-96rpx auto 0 auto;background-color:#f7f7f7;height:96rpx;font-size:30rpx;color:#bbb;}
 .integral-details .wrapper .nav .item{text-align:center;width:50%;}

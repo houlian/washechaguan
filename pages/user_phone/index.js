@@ -1,4 +1,4 @@
-import { bindingPhone} from '../../api/api.js';
+import { bindingPhone} from '../../api/user.js';
 const app = getApp();
 
 Page({
@@ -28,33 +28,19 @@ Page({
   //绑定手机
   getPhoneNumber: function (e) {
     // var _this = this;
+    let cache_key = wx.getStorageSync('cache_key')
     bindingPhone({
       encryptedData: e.detail.encryptedData,
-      iv: e.detail.iv
+      iv: e.detail.iv,
+      cache_key: cache_key
     }).then(res=>{
-      return app.Tips({ title: res.msg, icon: 'success' }, { tab: 5, url: '/pages/user_info/index' });
+      return app.Tips({ title: res.msg, icon: 'success' }, { tab: 5, url: 'pages/user/user' });
     }).catch(err => { return app.Tips({ title: err }); })
     return;
-    wx.request({
-      url: _this.data.phoneUrl,
-      data: {
-        // userid: app.globalData.member.id,
-        encryptedData: e.detail.encryptedData,
-        iv: e.detail.iv
-      },
-      success: function (res) {
-        if (res.data.code == 200) {
-          app.globalData.member = res.data.data;
-          wx.showToast({ title: res.data.msg, icon: 'success', duration: 1000 });
-        } else {
-          console.log(res);
-          wx.showToast({ title: res.data.msg, icon: 'none', duration: 1000 });
-        }
-      }
-    });
+
   },
 
-
+  onLoadFun: function(){},
 
   // 获取key值；
   getVerifyCode: function () {

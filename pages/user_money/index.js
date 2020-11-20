@@ -19,7 +19,7 @@ Page({
       'color': false,
     },
     userInfo:{},
-    host_product:[],
+
     isClose:false,
     recharge_switch:0,
   },
@@ -29,7 +29,6 @@ Page({
   */
   onLoadFun:function(){
     this.getUserInfo();
-    this.get_host_product();
     this.get_activity();
   },
   /**
@@ -75,15 +74,7 @@ Page({
       that.setData({ activity: res.data });
     })
   },
-  /**
-   * 获取我的推荐
-  */
-  get_host_product:function(){
-    var that=this;
-    getProductHot().then(res=>{
-      that.setData({ host_product: res.data });
-    })
-  },
+
 
   /**
    * 生命周期函数--监听页面显示
@@ -91,7 +82,6 @@ Page({
   onShow: function () {
     if (app.globalData.isLog && this.data.isClose) {
       this.getUserInfo();
-      this.get_host_product();
       this.get_activity();
     }
   },

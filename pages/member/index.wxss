@@ -1,0 +1,14 @@
+.mbas {padding: 50rpx 50rpx;}
+.mimg{height:328rpx;border-radius:16rpx;color:#fff;position:relative;background-size: 100% 100%}
+.mbas .mimg .name{font-size:46rpx;font-weight:bold;padding:40rpx 0 0 35rpx;}
+.mbas .mimg .discount{font-size:28rpx;font-weight:bold;margin:15rpx 0 0 35rpx;}
+.mbas .mimg .discount .iconfont{margin-left:10rpx;font-size:30rpx;}
+.mehuiyuan {
+  height: 175px;
+  width: 90%;
+  margin: auto;
+  margin-top: 15px;
+  background-color: white;
+  border-radius:30rpx;
+  padding: 20px;
+}
