@@ -1,8 +1,7 @@
-@import '/css/guildford.wxss';
 .my-account .wrapper{background-color:#fff;padding:32rpx 0 34rpx 0;margin-bottom:14rpx;}
 .my-account .wrapper .header{width:690rpx;height:330rpx;background-image:linear-gradient(to right,#c9cfc5 0%,#c9cfc5 100%);border-radius:16rpx;margin:0 auto;box-sizing:border-box;color:rgba(255,255,255,0.6);font-size:24rpx;}
 
-.my-account .wrapper .header .headerCon .account{padding:0 35rpx;}
+.my-account .wrapper .header .headerCon .account{padding:77rpx 35rpx;}
 .my-account .wrapper .header .headerCon .account .assets .money{font-size:72rpx;color:#fff;font-family: 'Guildford Pro';margin-top: 15rpx;}
 .my-account .wrapper .header .headerCon .account .recharge{font-size:28rpx;width:150rpx;height:54rpx;border-radius:27rpx;background-color:#fff9f8;text-align:center;line-height:54rpx;}
 .my-account .wrapper .header .headerCon .cumulative{margin-top:46rpx;}
