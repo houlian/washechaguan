@@ -1,0 +1,24 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='my-account'>
+   <view class='wrapper'>
+      <view class='header'>
+         <view class='headerCon'>
+              <view class='account acea-row row-top row-between'>
+                  <view class='assets'>
+                    <view>账号余额(元)</view>
+                    <view class='money'>{{userInfo.now_money || 0}}</view>
+                  </view>
+                  <view  class='recharge font-color'>瓦舍茶馆</view>
+              </view>
+
+         </view>
+      </view>
+      <view class='nav acea-row row-middle'>
+         
+      </view>
+
+
+   </view>
+
+</view>
+<authorize bind:onLoadFun='onLoadFun'></authorize>

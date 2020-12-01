@@ -12,7 +12,7 @@ Page({
       'return': '1',
       'title': '账单明细',
       'color':true,
-      'class':'0'
+      'class':'1'
     },
     loadTitle:'加载更多',
     loading:false,

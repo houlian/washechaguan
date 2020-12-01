@@ -19,10 +19,10 @@
          </view>
       </view>
       
-      <view class='acea-row row-column'>
+      <!-- <view class='acea-row row-column'>
          <text class="tip mt-30">注意事项：</text>
          <text class="tip-samll" wx:for='{{recharge_attention}}' wx:key='index'>{{item}}</text>
-      </view>
+      </view> -->
       <button class='but bg-color' formType="submit"> {{active ? '立即转入': '立即充值' }}</button>
    </view>
 </form>

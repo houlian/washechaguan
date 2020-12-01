@@ -25,9 +25,9 @@ view{box-sizing:border-box;}
 .acea-row.row-column-around{flex-direction:column;justify-content:space-around;}
 .acea-row.row-center-wrapper{align-items:center;justify-content:center;}
 .acea-row.row-between-wrapper{align-items:center;justify-content:space-between;}
-.font-color{color:#fc4141!important;}
-.bg-color{background-color:#e93323!important;}
-.icon-color{color:#ff3c2b;}
+.font-color{color:#c9cfc5!important;}
+.bg-color{background-color:#c9cfc5!important;}
+.icon-color{color:#c9cfc5;}
 .cart-color{color:#ff3700!important;border:1px solid #ff3700!important;}
 /* 单选 */
 radio .wx-radio-input{border-radius:50%;width:38rpx;height:38rpx;}

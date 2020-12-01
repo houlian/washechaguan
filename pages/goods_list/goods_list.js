@@ -14,7 +14,7 @@ Page({
       'return': '1',
       'title': '商品列表',
       'color': true,
-      'class': '0'
+      'class': '1'
     },
     navH: "",
     is_switch:true,

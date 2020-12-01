@@ -16,7 +16,7 @@ Page({
       'return': '0',
       'title': '个人中心',
       'color': true,
-      'class': '0'
+      'class': '1'
     },
     userInfo:{},
     MyMenus:[],

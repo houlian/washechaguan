@@ -12,7 +12,7 @@ Page({
       'return': '1',
       'title': '积分详情',
       'color': true,
-      'class': '0'
+      'class': '1'
     },
     navList:[
       { 'name': '充值明细', 'icon':'icon-mingxi'},

@@ -36,7 +36,7 @@
 
   <view class="mehuiyuan">
     <view class="meit" bindtap="chongzhi">在线充值</view>
-    <view class="meit">在线付款</view>
+    <view class="meit" bindtap="zhifu">在线付款</view>
 
   </view>
 

@@ -1,7 +1,7 @@
 @import '/app.wxss';
 .navbar{position:fixed;background-color:#fff;top:0;left:0;z-index:999;width:100%;}
-.navbar.on{background-color:#e93323;}
-.navbar.black{background-color:#232323;}
+.navbar.on{background-color:#c9cfc5;}
+.navbar.black{background-color:#c9cfc5;}
 .navbar.gray{background-color:#666;}
 .navbar.red{background-color:#eb5447;}
 .navbar.gradual01{background-image: linear-gradient(to right,#f67837 0%,#f11d09 100%);}

@@ -59,6 +59,11 @@ Page({
       url: '/pages/user_money/index',
     })
   },
+  zhifu:function(){
+    wx.navigateTo({
+      url: '/pages/user_money_pay/index',
+    })
+  },
   getUserInfo:function(){
     var that=this;
     getUserInfo().then(res=>{

@@ -13,7 +13,8 @@ Page({
       'navbar': '1',
       'return': '1',
       'title': '我的优惠券',
-      'color': false
+      'color': false,
+      'class': 1
     },
     couponsList:[],
     loading:false,

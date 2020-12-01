@@ -21,6 +21,7 @@
     "pages/user_integral/index",
     "pages/user_bill/index",
     "pages/user_money/index",
+    "pages/user_money_pay/index",
     "pages/user_spread_user/index",
     "pages/user_sgin_list/index",
     "pages/order_list/index",
