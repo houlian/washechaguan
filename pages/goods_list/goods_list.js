@@ -12,12 +12,12 @@ Page({
     parameter: {
       'navbar': '1',
       'return': '1',
-      'title': '商品列表',
+      'title': '积分商城',
       'color': true,
       'class': '1'
     },
     navH: "",
-    is_switch:true,
+    is_switch:false,
     where: {
       sid: 0,
       keyword: '',
@@ -79,11 +79,11 @@ Page({
        is_switch: !this.data.is_switch
      })
   },
-  searchSubmit: function (e) {
-    var that = this;
-    this.setData({ ['where.keyword']: e.detail.value, loadend: false, ['where.page']: 1 })
-    this.get_product_list(true);
-  },
+  // searchSubmit: function (e) {
+  //   var that = this;
+  //   this.setData({ ['where.keyword']: e.detail.value, loadend: false, ['where.page']: 1 })
+  //   this.get_product_list(true);
+  // },
   /**
   * 获取我的推荐
   */

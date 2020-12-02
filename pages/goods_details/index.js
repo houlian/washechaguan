@@ -162,36 +162,7 @@ Page({
       wx.navigateTo({ url: `/pages/goods_details/index?id=${item.id}` });
     }
   },
-  /*
- * 跳转门店列表
- */
-  showStoreList: function () {
-    wx.navigateTo({
-      url: '/pages/goods_details_store/index?go=details'
-    })
-  },
-  /**
-   * 获取门店列表数据
-  */
-  getList: function () {
-    let longitude = wx.getStorageSync(CACHE_LONGITUDE); //经度
-    let latitude = wx.getStorageSync(CACHE_LATITUDE); //纬度
-    let data = {
-      latitude: latitude, //纬度
-      longitude: longitude, //经度
-      page: 1,
-      limit: 10
-    }
-    storeListApi(data).then(res => {
-      let list = res.data.list || [];
-      this.setData({
-        storeList: list,
-        storeItems: list[0]
-      });
-    }).catch(err => {
-
-    })
-  },
+  
   /*
   * 获取用户信息
   */
@@ -208,57 +179,7 @@ Page({
       });
     });
   },
-  /**
-   * 购物车手动填写
-   * 
-  */
-  iptCartNum: function (e) {
-    this.setData({
-      ['productSelect.cart_num']: e.detail,
-      cart_num: e.detail
-    });
-  },
-  /**
-   * 购物车数量加和数量减
-   * 
-  */
-  ChangeCartNum: function (e) {
-    //是否 加|减
-    var changeValue = e.detail;
-    //获取当前变动属性
-    var productSelect = this.data.productValue[this.data.attrValue];
-    //如果没有属性,赋值给商品默认库存
-    if (productSelect === undefined && !this.data.productAttr.length) productSelect = this.data.productSelect;
-    //不存在不加数量
-    if (productSelect === undefined) return;
 
-    if (this.data.cart_num) {
-      productSelect.cart_num = this.data.cart_num;
-    };
-    //提取库存
-    var stock = productSelect.stock || 0;
-    //设置默认数据
-    if (productSelect.cart_num == undefined) productSelect.cart_num = 1;
-    //数量+
-    if (changeValue) {
-      productSelect.cart_num++;
-      //大于库存时,等于库存
-      if (productSelect.cart_num > stock) productSelect.cart_num = stock ? stock : 1;
-      this.setData({
-        ['productSelect.cart_num']: productSelect.cart_num,
-        cart_num: productSelect.cart_num
-      });
-    } else {
-      //数量减
-      productSelect.cart_num--;
-      //小于1时,等于1
-      if (productSelect.cart_num < 1) productSelect.cart_num = 1;
-      this.setData({
-        ['productSelect.cart_num']: productSelect.cart_num,
-        cart_num: productSelect.cart_num
-      });
-    }
-  },
   /**
    * 属性变动赋值
    * 
@@ -329,7 +250,7 @@ Page({
     //记录推广人uid
     if (options.spid) app.globalData.spid = options.spid;
     this.getGoodsDetails();
-    this.getList();
+
   },
   setClientHeight: function () {
     if (!this.data.good_list.length) return;
